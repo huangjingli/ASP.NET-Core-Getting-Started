@@ -1,0 +1,50 @@
+[
+  //css
+  {
+    //这块用于开发
+    //打包文件存放路径和名称  //第二个是打包的原文件
+    "outputFileName": "wwwroot/css/all.min.css",
+    "inputFiles": [
+      "node_modules/bootstrap/dist/css/bootstrap.css",
+      "wwwroot/css/site.css"
+    ]
+  },
+  {
+    //这块用于生产
+    "outputFileName": "wwwroot/css/bootstrap.css",
+    "inputFiles": [
+      "node_modules/bootstrap/dist/css/bootstrap.css"
+    ],
+    //minify 就是压缩的意思 
+    "minify": {
+      "enabled": false
+    }
+  },
+  //js  生产环境
+  {
+    "outputFileName": "wwwroot/js/all.min.js",
+    "inputFiles": [
+      "node_modules/jquery-slim/dist/jquery.slim.js",
+      "node_modules/popper.js/dist/js/popper.js",
+      "node_modules/bootstrap/dist/js/bootstrap.js",
+      "wwwroot/js/site.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  },
+  //开发环境
+  {
+    "outputFileName": "wwwroot/js/vendor.js",
+    "inputFiles": [
+      "node_modules/jquery-slim/dist/jquery.slim.js",
+      "node_modules/popper.js/dist/js/popper.js",
+      "node_modules/bootstrap/dist/js/bootstrap.js"
+    ],
+    "minify": {
+      "enabled": false
+    }
+  }
+]

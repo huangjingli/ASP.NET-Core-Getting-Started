@@ -1,0 +1,31 @@
+﻿@using CoreDemo.Setrings
+@using Microsoft.Extensions.Options
+@model IEnumerable<Cinema>
+@inject IOptions<ConnectionOptions> Options
+<div class="container">
+    <div class="row">
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">电影名</th>
+                <th scope="col">地址</th>
+                <th scope="col">人数</th>
+                <th></th><th></th>
+            </tr>
+            </thead>
+            <tbody> @Html.DisplayForModel()</tbody>
+        </table>
+        <a>@if (Options.Value.DefaultConnection != null)
+           {
+            <p>数据库连接成功</p>
+           }</a>
+        <a asp-action="Add">添加</a>
+        
+        @* 可以复用的view 很多地方可以用*@
+        <p> @await Component.InvokeAsync("MovieCount",new {cinemaId=1})</p>
+        
+        @* 第二种方式 *@
+        <vc:movie-count cinema-id="1"></vc:movie-count>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+﻿@model Movie
+<tr>
+    <th scope="row">@Model.Id</th>
+    <td>@Model.Name</td>
+    <td>@Model.CinemaId</td>
+    <td>@Model.Starring</td>
+    <td>@Model.ReleaseDate</td>
+    <td><a asp-action="Edit" asp-route-movieId="@Model.Id"></a>编辑</td>
+</tr>

@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewBag.Title</title>
+    
+    <!--开发环境判断-->
+    <environment include="Development">
+        <link rel="stylesheet" asp-href-include="css/*" asp-href-exclude="css/all.min.css"/>
+    </environment>
+    <!--不是开发环境-->
+    <environment exclude="Development">
+        <link rel="stylesheet" asp-href-include="css/all.min.css" />
+    </environment>
+</head>
+<body>
+<!-- Just an image -->
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        @* 处理图片缓存问题 asp-append-version="true" *@
+        <img asp-append-version="true" src="images/bootstrap-solid.svg" width="30" height="30" alt="">@ViewBag.Title
+    </a>
+</nav>
+<div>
+    @RenderBody()
+</div>
+</body>
+</html>
